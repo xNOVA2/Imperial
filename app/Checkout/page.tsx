@@ -1,13 +1,13 @@
 'use client'
 import React, { useState } from 'react'; // Import useState
 import { z } from 'zod'; // Import Zod
-import { X } from 'lucide-react';
 import EmptyCart from '@/components/EmptyCart/EmptyCart';
 import { ComapanyBar, Navbar } from '@/components/Export';
 import { useStore } from '@/Store/CartSlice';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface OrderType {
   name:string
@@ -24,7 +24,7 @@ interface orderCartType{
     company:string
     modelNumber:string
 }
-export default function Page() {
+export default function CheckOut() {
 
   const user = useAuth()
   const router = useRouter()
@@ -97,7 +97,7 @@ export default function Page() {
 
       
       
-      const apiUrl = 'http://localhost:3000/api/Order';
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/Order`;
 
       const orderData:OrderType = {
         name: formData.name,
@@ -382,10 +382,12 @@ export default function Page() {
                     <li key={product.id} className="flex items-stretch justify-between space-x-5 py-7">
                       <div className="flex flex-1 items-stretch">
                         <div className="flex-shrink-0">
-                          <img
+                          <Image
+                          width={300}
+                          height={200}
                             className="h-20 w-20 rounded-lg border border-gray-200 bg-white object-contain"
                             src={product.image}
-                            alt={product.title}
+                            alt={''}
                           />
                         </div>
                         <div className="ml-5 flex flex-col justify-between">

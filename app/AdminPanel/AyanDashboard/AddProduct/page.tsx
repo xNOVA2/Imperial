@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function page() {
+export default function AddProduct() {
   let data;
 
     const [formData, setFormData] = useState({

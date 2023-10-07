@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { FetchProductsType } from '@/Types/type';
 
 export default function ProductUpdateForm({ productId }:{productId:number}) {
     

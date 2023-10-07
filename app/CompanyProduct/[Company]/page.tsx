@@ -17,7 +17,7 @@ export default  async function page({params,searchParams}:{params:{Company:strin
     queryParams.Search = Search
   }
   const queryString = new URLSearchParams(queryParams as any).toString();
-  const data = await fetch(`http://localhost:3000/api/productsByCompany/${Company}?${queryString}`,{next:{revalidate:1}})
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/productsByCompany/${Company}?${queryString}`,{next:{revalidate:1}})
   const result = await data.json();
   return (
     <>

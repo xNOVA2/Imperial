@@ -7,7 +7,7 @@ import { Navbar } from '@/components/Export'
 import { FetchProductsType } from '@/Types/type'
 export default async function ProductOverviewOne({ params }: { params: { id: number } }) {
 
-  const data = await fetch(`http://localhost:3000/api/SingleProduct/${params.id}`)
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/SingleProduct/${params.id}`)
   const result = await data.json()
   const Item: FetchProductsType = result.data
 
