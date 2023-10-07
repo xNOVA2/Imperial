@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
-export default function page() {
+export default function AdminPanel() {
   const [Form, setForm] = useState({
     email:"",
     password:""
