@@ -26,7 +26,7 @@ async function getData(Category: string, PriceRange: string, Series: string, Bra
   }
   const queryString = new URLSearchParams(queryParams as any).toString();
 
-  const data = await fetch(`/api/productsByCategory/${Category}?${queryString}`, { next: { revalidate: 1 } })
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/productsByCategory/${Category}?${queryString}`, { next: { revalidate: 1 } })
 
 
   if (!data.ok) {
