@@ -114,9 +114,9 @@ export default async function page({ params, searchParams }: { params: { Categor
                     </Link>
                   </div>
                   <div className="mt-4 p-4">
+                  <h3 className=" text-lg font-semibold">{product.CompanyName}</h3>
                     <h3 className=" text-lg font-semibold">{product.ModelNo}</h3>
                     <p className="mt-2 text-gray-500 text-sm">{product.ItemType}</p>
-                    <p className="mt-2 text-gray-500 text-sm">{product.id}</p>
                     <div className="mt-2 flex justify-between items-center">
                       <p className="">PKR: {product.Price}</p>
                       <AddtoCart
@@ -136,23 +136,6 @@ export default async function page({ params, searchParams }: { params: { Categor
                 </div>
  )}      
           </div>
-        
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <Footer />
     </>
   )
