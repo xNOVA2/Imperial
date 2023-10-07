@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function page({searchParams}:{searchParams:{Search:string}}) {
+export default async function UpdateAndDelete({searchParams}:{searchParams:{Search:string}}) {
   let result;
   if(searchParams.Search && searchParams.Search.length>1){
     
@@ -17,7 +17,7 @@ export default async function page({searchParams}:{searchParams:{Search:string}}
   
   return (
     <div>
-           <nav className="flex justify-between px-4   items-center">
+           <nav className="flex justify-between px-4  items-center">
             <h1 className="text-2xl font-bold"><Link href={'/AdminPanel/AyanDashboard'}>Admin Dashboard </Link> </h1>
         <ul className="flex justify-items-center m-3 gap-4">
             <li><Button variant={"link"} className="text-sm"><Link href={'/AdminPanel/AyanDashboard/Update&Delete'} > Update / Delete Products</Link></Button></li>
