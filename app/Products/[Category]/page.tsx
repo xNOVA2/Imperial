@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FetchProductsType } from "@/Types/type";
 import AddtoCart from "@/components/AddtoCart";
 import noData from '../../../public/noData.svg'
+import { getBaseUrl } from "@/components/Categories";
 
 interface QueryParams {
   Series?: string | undefined | null
@@ -26,7 +27,10 @@ async function getData(Category: string, PriceRange: string, Series: string, Bra
   }
   const queryString = new URLSearchParams(queryParams as any).toString();
 
-  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/productsByCategory/${Category}?${queryString}`, { next: { revalidate: 1 } })
+const url = getBaseUrl();
+ console.log(url);
+ 
+  const data = await fetch(`${url}/api/productsByCategory/${Category}?${queryString}`, { next: { revalidate: 1 } })
 
 
   if (!data.ok) {
