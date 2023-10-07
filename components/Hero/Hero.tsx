@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { slides } from '../../Common/Slides';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,12 +42,16 @@ export default function Slider() {
               key={slide.id}
               className="w-[25%] md:w-[25%] lg:w-[25%] h-[190px] lg:h-[320px] md:h-[280px] flex-shrink-0 relative"
             >
+              <Link href={slide.link}>
               <Image src={slide.image} alt={`Slide ${slide.id}`} fill className="rounded-lg" />
+
+              </Link>
             </div>
           ))}
         </div>
       </div>
       <div className="flex justify-center mt-4">
+       
         {slides.map((slide, index) => (
           <button
             key={slide.id}

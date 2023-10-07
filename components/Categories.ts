@@ -8,5 +8,5 @@ export const categories = [
     { name: 'Kitchen Appliances', link: 'Kitchen-Appliances' },
     { name: 'AUTOMATIC WASHING MACHINE', link: 'AUTOMATIC-WASHING-MACHINE' },
     { name: 'Home Appliances', link: 'Home-Appliances' },
-    { name: 'Beauty & Care Products', link: 'Beauty-Care-Products' },
+    { name: 'Beauty & Care ', link: 'Beauty & Care' },
   ];

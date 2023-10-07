@@ -1,10 +1,12 @@
 import { products5 } from "@/Common/Products";
 import { FetchProductsType } from "@/Types/type";
+import AddtoCart from "@/components/AddtoCart";
 import SearchBox from "@/components/CompanySearch/SearchBox";
 import { ComapanyBar, Navbar } from "@/components/Export";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import noData from '../../../public/noData.svg'
 
 export default  async function page({params,searchParams}:{params:{Company:string},searchParams:{Search:string}}) {
   const Company = params.Company.replace(/-/g, ' ')
@@ -40,38 +42,58 @@ export default  async function page({params,searchParams}:{params:{Company:strin
       <hr className="px-5"/>
       <hr  className="px-5"/>
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="sr-only">Products</h2>
-  
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {result.data?.map((product: FetchProductsType) => (
-              <div className="bg-white border rounded-lg shadow-lg" key={product.id}>
-                <Link href={`/SingleProduct/${product.id}`} className="group">
-                  <div className="relative aspect-w-4 aspect-h-3">
-                    <Image
-                      src={product.ProductUrl}
-                      alt={String(product.id)}
-                      width={500}
-                      height={300}
-                      className="w-36 lg:w-full h-full lg:p-14 px-7 mt-5"
-                    />
+       {result.data?.length === 0 ? (
+            <div className="flex items-center justify-center m-10">
+            <div className="text-center">
+              <Image src={noData} alt="undraw Picture" width={500} height={300} />
+              <p className="text-2xl font-bold mt-5">No Result Found</p>
+            </div>
+          </div>
+            ) : (<div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            
+              {result.data?.map((product: FetchProductsType, index: number) => (
+                <div key={product.id}>
+                  <div className="bg-white border rounded-lg shadow-lg">
+                    <Link href={`/SingleProduct/${product.id}`} className="group">
+                      <div className="mt-10 relative aspect-w-4 aspect-h-3">
+                        <div
+                          className="w-36 lg:w-full aspect-container"
+                          style={{ paddingBottom: '75%' }} // 3:4 aspect ratio (300/400)
+                        >
+                          <Image
+                            src={product.ProductUrl}
+                            alt={String(product.id)}
+                            fill
+                            objectFit="cover"
+                          />
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-                <div className="p-4">
-                  <h3 className="text-gray-900 text-lg font-semibold">{product.ItemType}</h3>
-                  <p className="mt-2 text-gray-500 text-sm">{product.ModelNo}</p>
-                  <p className="mt-2 text-gray-500 text-sm">{product.id}</p>
-                  <div className="mt-4 flex justify-between items-center">
-                    <p className="text-gray-900">Rs: {product.Price}</p>
+                  <div className="mt-4 p-4">
+                    <h3 className="text-gray-900 text-lg font-semibold">{product.ModelNo}</h3>
+                    <p className="mt-2 text-gray-500 text-sm">{product.ItemType}</p>
+                    <p className="mt-2 text-gray-500 text-sm">{product.id}</p>
+                    <div className="mt-2 flex justify-between items-center">
+                      <p className="text-gray-900">PKR: {product.Price}</p>
+                      <AddtoCart
+                        company={product.CompanyName}
+                        modelNumber={product.ModelNo}
+                        image={product.ProductUrl}
+                        price={product.Price}
+                        title={product.ItemType}
+                        key={index}
+                        id={product.id}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-         
+                 ))}
+                    </div>
+                </div>
+ )}      
           </div>
-        </div>
-      </div>
-   
     <Footer/>
     </>
   )

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ProductProps } from "@/Types/type";
 
-export default function ProductCard({ title, image1, image2, description, price }: ProductProps) {
+export default function ProductCard({ title, image1, image2, description, }: ProductProps) {
   return (
     <section>
       {/* Container for product details */}
@@ -23,7 +23,7 @@ export default function ProductCard({ title, image1, image2, description, price 
               </header>
 
               {/* Link to view all products */}
-              <Link href={'/Products/'+title}>
+              <Link href={'/Products/' + title}>
                 <Button className="mt-5">View All</Button>
               </Link>
             </div>
@@ -34,40 +34,40 @@ export default function ProductCard({ title, image1, image2, description, price 
             <ul className="grid grid-cols-2 gap-4">
               {/* First product image */}
               <li>
-              <Link href={'/Products/'+title}>
-               
-                    
-                    <Image
-                      src={image1}
-                      alt=""
-                      priority={false}
-                      width={400}
-                      height={300}
-                      className="object-cover w-full rounded aspect-square"
-                    />
+                <Link href={'/Products/' + title}>
 
-                    {/* Product details */}
-                    
-             
+
+                  <Image
+                    src={image1}
+                    alt=""
+                    priority={false}
+                    width={400}
+                    height={300}
+                    className="object-cover w-full rounded aspect-square"
+                  />
+
+                  {/* Product details */}
+
+
                 </Link>
               </li>
 
               {/* Second product image */}
               <li>
-              <Link href={'/Products/'+title}>
-            
-                    <Image
-                      src={image2}
-                      alt=""
-                      width={400}
-                      height={300}
-                      priority={false}
-                      className="object-cover w-full rounded aspect-square"
-                    />
+                <Link href={'/Products/' + title}>
 
-                    {/* Product details */}
-                  
-                  </Link>
+                  <Image
+                    src={image2}
+                    alt=""
+                    width={400}
+                    height={300}
+                    priority={false}
+                    className="object-cover w-full rounded aspect-square"
+                  />
+
+                  {/* Product details */}
+
+                </Link>
               </li>
             </ul>
           </div>

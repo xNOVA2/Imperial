@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        Int     @id @unique @default(autoincrement())
   ModelNo     String
   CompanyName   String
   ItemType   String
@@ -20,23 +20,36 @@ ItemDescription String
 Type String?
 Series String
 Size String?
-Color String
+Color String?
 ProductUrl String
 Extra String?
 }
 
 model Coupon {
-  id        Int     @id @default(autoincrement())
+  id        Int     @id @unique @default(autoincrement())
   Code String
   GiftItem String
 }
 
 model Order{
- id        Int     @id @default(autoincrement())
+ id        Int     @id  @unique @default(autoincrement())
  Name String
  Email String
  PhoneNumber String
  Address String
  City String
  RiderNote String?
+ orderItems  OrderItem[]
+ totalPrice Int
+ postalCode String
+}
+
+
+model OrderItem {
+  id         Int      @id @unique @default(autoincrement())
+  modelNumber    String
+  company    String
+
+  order      Order    @relation(fields: [orderId], references: [id])
+  orderId    Int
 }

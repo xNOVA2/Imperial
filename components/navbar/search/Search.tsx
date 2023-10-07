@@ -34,22 +34,25 @@ const frameworks = [
     label: "TCL",
   },
   {
-    value: "gaba-national",
-    label: "GABA-NATIONAL",
-  },
-  {
     value: "super-asia",
-    label: "Super-Asia",
+    label: "SUPER-ASIA",
   },
   {
     value: "boss",
     label: "Boss",
   },
   {
-    value: "west-point",
-    label: "West-Point",
+    value: "westpoint",
+    label: "WESTPOINT",
   },
-  
+  {
+    value: "pel",
+    label: "PEL",
+  },
+  {
+    value: "gree",
+    label: "GREE",
+  },
 ]
 
 export function Search() {
@@ -82,7 +85,7 @@ export function Search() {
                 key={framework.value}
                 onSelect={(currentValue:any) => {
                   setValue(currentValue === value ? "" : currentValue)
-                  router.push(`/CompanyProduct/${value}`)
+                  router.push(`/CompanyProduct/${String(currentValue).toUpperCase()}`)
                   setOpen(false)
                 }}
               >

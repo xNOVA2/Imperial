@@ -11,8 +11,8 @@ const products = [
   },
   {
     id: 2,
-    title: 'Hand juicer ',
-    image: 'https://www.dawlance.com.pk/media/resize/F01000000008_LO1_20230522_135503.png/1000Wx1000H/image.webp',
+    title: 'CERAMIC COOKERS ',
+    image: 'https://www.westpoint.pk/cdn/shop/products/Untitleddesign_1024x1024.jpg?v=1681195305',
     link:"/Products/Kitchen-Appliances"
   },
   {
@@ -29,7 +29,7 @@ const products = [
   },
   {
     id: 5,
-    title: 'Washing Machine',
+    title: 'WASHING MACHINE',
     image: 'https://www.dawlance.com.pk/media/resize/F01000000149_LO1_20230811_081109.png/1000Wx1000H/image.webp',
     link:"/Products/WASHING-MACHINE"
 
@@ -37,7 +37,7 @@ const products = [
   {
     id: 6,
     title: 'Blender',
-    image: 'https://www.dawlance.com.pk/media/resize/F01000000169_LO1_20230522_134542.png/1000Wx1000H/image.webp',
+    image: 'https://www.shoppingjin.pk/wp-content/uploads/2022/06/westpoint-wf-8923-shoppingjin.pk.jpg',
     link:"/Products/Kitchen-Appliances"
 
   },

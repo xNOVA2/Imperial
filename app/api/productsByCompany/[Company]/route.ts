@@ -8,14 +8,13 @@ export  async function GET(request:Request,{params}:{params:{Company:string}}){
         let Search = searchParams.get('Search')
   
         
-       
+        
             data = await prisma.post.findMany({where:{CompanyName:params.Company}})
             if (Search) {
-                const searchLower = Search.toLowerCase(); 
                 if (params.Company === 'WESTPOINT' || params.Company === "ANEX") {
-                  data = data.filter((newData) => newData.Series.toLowerCase() === searchLower);
+                  data = data.filter((newData) => newData.Series.trim().toLowerCase() === Search?.trim().toLowerCase());
                 } else if (Search) {
-                  data = data.filter((newData) => newData.ItemType.toLowerCase() === searchLower);
+                  data = data.filter((newData) => newData.ItemType.trim().toLowerCase() == Search?.trim().toLowerCase());
                 }
               }
           

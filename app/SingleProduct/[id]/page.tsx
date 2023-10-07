@@ -106,7 +106,7 @@ export default  async function ProductOverviewOne({params}:{params:{id:number}})
           </div>
           <div className="space-s-4 3xl:pr-48 flex items-center gap-2 border-b border-gray-300 py-8  md:pr-32 lg:pr-12 2xl:pr-32">
            
-            <AddtoCart Comapny={Item.CompanyName} id={Item.id} image={Item.ProductUrl} ModelNumber={Item.ModelNo} price={Item.Price} title={Item.ItemType} />
+            Add to Cart<AddtoCart company={Item.CompanyName} id={Item.id} image={Item.ProductUrl} modelNumber={Item.ModelNo} price={Item.Price} title={Item.ItemType} />
            
           </div>
           <div className="py-6 ">

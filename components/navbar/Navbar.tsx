@@ -1,8 +1,9 @@
 'use client'
 // Imports  
+import React, { Suspense } from 'react';
 import { UserButton, useAuth } from "@clerk/nextjs";
 import Image from 'next/image';
-import { LucideShoppingBag, ShoppingCart } from 'lucide-react';
+import {  ShoppingCart } from 'lucide-react';
 import { Search } from "./search/Search";
 import { Button } from "../ui/button";
 import Link from 'next/link';
@@ -22,7 +23,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navigation bar */}
-      <nav className="flex justify-between p-5 items-center">
+      <div className="flex justify-between p-5 items-center">
         <div className=" md:hidden lg:hidden ">
 
           <SheetProduct Text={<HamburgerMenuIcon fontSize={34} />} isChecked />
@@ -49,8 +50,9 @@ export default function Navbar() {
           {/* Conditional rendering based on user */}
           {user.isSignedIn ? (
             // Display UserButton when a user is logged in
-
+            <Suspense fallback={<div>Loading...</div>} >
             <UserButton afterSignOutUrl="/sign-in" />
+            </Suspense>
 
           ) : (
             // Display a link to sign-up when no user is logged in
@@ -59,11 +61,10 @@ export default function Navbar() {
             </Link>
           )}
         </div>
-      </nav>
+      </div>
 
-      {/* Horizontal separators */}
-      <hr />
-      <hr />
+     
+     
     </>
   );
 }

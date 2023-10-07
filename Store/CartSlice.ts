@@ -5,8 +5,8 @@ export interface CartType {
     price:number
     image:string
     title?:string 
-    Comapny:string
-    ModelNumber:string
+    company:string
+    modelNumber:string
     
 }
 
@@ -15,6 +15,7 @@ interface CartState  {
     AddCart: (item: CartType) =>  void ;
     RemoveAnItem:(id:number)=>void;
   };
+  
   export const useStore = create<CartState>((set: any) => ({
     Cart: [],
     AddCart: (item: CartType) =>

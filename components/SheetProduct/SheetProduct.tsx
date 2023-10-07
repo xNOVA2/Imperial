@@ -25,8 +25,9 @@ export default function SheetProduct({isChecked,Text}:{isChecked:boolean,Text:st
               </SheetTrigger>
               <SheetContent side={"left"}>
                 <SheetHeader>
-                  <SheetTitle >Filter</SheetTitle>
+                  <SheetTitle >Products</SheetTitle>
                   <SheetDescription>
+                  Upgrade Your Home with Top-Notch Home Appliances! Discover a wide range of kitchen appliances, energy-efficient ACs, and cutting-edge LED TVs from trusted brands like TCL, Dawlance, and Haier. Elevate your lifestyle with the latest technology and performance you can rely on.
                     <div className="pt-2">
                     <hr />
                     <hr />
