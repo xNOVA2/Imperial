@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import noData from '../../../public/noData.svg'
+import { getBaseUrl } from "@/components/Categories";
 
 export default  async function page({params,searchParams}:{params:{Company:string},searchParams:{Search:string}}) {
   const Company = params.Company.replace(/-/g, ' ')
@@ -17,7 +18,9 @@ export default  async function page({params,searchParams}:{params:{Company:strin
     queryParams.Search = Search
   }
   const queryString = new URLSearchParams(queryParams as any).toString();
-  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/productsByCompany/${Company}?${queryString}`,{next:{revalidate:1}})
+  const url = getBaseUrl();
+
+  const data = await fetch(`${url}/api/productsByCompany/${Company}?${queryString}`,{next:{revalidate:3600}})
   const result = await data.json();
   return (
     <>

@@ -31,8 +31,8 @@ async function getData(Category: string, PriceRange: string, Series: string, Bra
 
 const host = headers().get("host")
 
- 
-  const data = await fetch(`https://${host}/api/productsByCategory/${Category}?${queryString}`)
+ const url = getBaseUrl();
+  const data = await fetch(`${url}/api/productsByCategory/${Category}?${queryString}`)
 
 
   if (!data.ok) {
