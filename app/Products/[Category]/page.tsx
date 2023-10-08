@@ -1,4 +1,5 @@
 export const dynamic = "force-dynamic";
+
 import { ComapanyBar, Navbar } from "@/components/Export"
 import Footer from "@/components/Footer/Footer"
 import Link from "next/link"
@@ -31,7 +32,7 @@ async function getData(Category: string, PriceRange: string, Series: string, Bra
 const host = headers().get("host")
 
  
-  const data = await fetch(`https://${host}/api/productsByCategory/${Category}?${queryString}`, { next: { revalidate: 1 } })
+  const data = await fetch(`https://${host}/api/productsByCategory/${Category}?${queryString}`)
 
 
   if (!data.ok) {
